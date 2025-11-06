@@ -1,3 +1,18 @@
+<?php
+SESSION_start();
+include "Connict.php";
+if($_SERVER["REQUEST_METHOD"] === "POST"){
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $sql = "SELECT * FROM admin WHERE Email='$email' AND Password='$password'";
+    $result = $connict->query($sql);
+    if($result->num_rows > 0){
+        header("Location: Dashbord.php?login=success");
+    }else{
+        echo "ایمیل یا رمز عبور اشتباه است";
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,17 +33,17 @@
 </div>
     <!-- navbar endded -->
      <div class="w-full mx-auto h-[87vh] gap-5 bg-red-400 flex flex-col justify-center items-center">
-       <form action="" class="w-[500px] h-[40vh] bg-white gap-4 flex flex-col justify-center   p-3 shadow-lg shadow-gray-400">
+       <form action=<?php echo $_SERVER["PHP_SELF"] ?> method="post" class="w-[500px] h-[40vh] bg-white gap-4 flex flex-col justify-center   p-3 shadow-lg shadow-gray-400">
         <h1 class="text-2xl font-bold">ورود به بخش مدریت</h1>
         <div>
             <label for="Email" class="font-bold">ایمیل</label>
-            <input type="text" class="border-b w-full py-1 border-gray-500 outline-0">
+            <input type="email" name="email" class="border-b w-full py-1 border-gray-500 outline-0">
         </div>
         <div>
             <label for="Email" class="font-bold">رمز عبور</label>
-            <input type="text" class="border-b w-full py-1 border-gray-500 outline-0">
+            <input type="password" name="password" class="border-b w-full py-1 border-gray-500 outline-0">
         </div>
-        <button class=" bg-red-400 text-white py-3 px-4 w-full">ورود</button>
+        <button type="submit" class=" bg-red-400 text-white py-3 px-4 w-full">ورود</button>
        </form>
      </div>
  <!-- endded -->
