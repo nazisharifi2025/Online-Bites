@@ -6,9 +6,10 @@
     <title>Document</title>
     <link rel="stylesheet" href="../src/output.css">
     <script src="nav.js" defer></script>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-    <div class="flex relative justify-between px-4 items-center w-full h-20 text-white bg-red-300">
+    <div class="flex relative justify-between px-4 items-center w-full h-20 text-white bg-green-950/80">
         <h1 class="text-2xl font-bold">رستورانت آنلاین</h1>
         <ul class="flex space-x-6 justify-center  items-center font-bold text-white">
             <li><a href="home.php">صفحه اصلی</a></li>

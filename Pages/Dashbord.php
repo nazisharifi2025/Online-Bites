@@ -8,14 +8,14 @@ include "connict.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
         <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="../src/output.css">
+    <!-- <link rel="stylesheet" href="../src/output.css"> -->
 </head>
 <body>
     <div class="w-full h-screen flex  ">
-     <div class="w-[30%] h-full bg-red-400/50 flex flex-col gap-6 pt-6">
+     <div class="w-[30%] h-full bg-green-950/75 flex flex-col gap-6 pt-6">
         <h1 class="text-3xl font-bold text-center p-4 text-white">رستورانت آنلاین</h1>
         <div class="py-2 text-white bg-black/25 flex justify-center items-center ">
-            <a href=""><h1 class="font-bold text-2xl">غذا ها</h1></a>
+            <a href="Fooda.php"><h1 class="font-bold text-2xl">غذا ها</h1></a>
         </div>
         <div class="py-2 text-white bg-black/25 flex justify-center items-center ">
             <a href=""><h1 class="font-bold text-2xl">دسته بندی ها</h1></a>
@@ -29,8 +29,8 @@ include "connict.php";
        
      </div>
       <!-- div 1 -->
-       <div dir="rtl" class=" h-full flex w-[100%] flex-col bg-red-300">
-            <div  class="w-full h-20 shadow-md font-bold shadow-gray-600 flex space-x-7 justify-start items-center text-white px-4">
+       <div dir="rtl" class=" h-full flex w-[100%] flex-col bg-green-950/80">
+            <div  class="w-full h-20 shadow-xl font-bold shadow-black-600 flex space-x-7 justify-start items-center text-white px-4">
                 <a href="home.php">صفحه اصلی</a>
                 <a href="Dashbord.php">داشبورد</a>
                 <a href="Abouta.php">درباره</a>
@@ -47,13 +47,13 @@ include "connict.php";
     ?>
     </div>
     <div class="bg-black/25 w-[70%] h-[60vh] flex flex-col justify-center gap-8 items-center p-12">
-        <div class="h-14 rounded-md border w-[85%] border-white bg-gradient-to-l from-red-300 to-black/65 text-2xl  flex justify-center items-center text-white text-center">
-           <a href=""><h1>غذا ها</h1></a> 
+        <div class="h-14 rounded-md border w-[85%] border-white bg-gradient-to-l from-green-950/80 to-white/40 text-2xl  flex justify-center items-center text-white text-center">
+           <a href="Fooda.php"><h1>غذا ها</h1></a> 
         </div>
-        <div class="h-14 rounded-md border w-[85%] border-white bg-gradient-to-l from-red-300 to-black/65 text-2xl  flex justify-center items-center text-white text-center">
+        <div class="h-14 rounded-md border w-[85%] border-white bg-gradient-to-l from-green-950/80 to-white/40 text-2xl  flex justify-center items-center text-white text-center">
            <a href=""><h1>دسته بندی ها </h1></a> 
         </div>
-        <div class="h-14 rounded-md border w-[85%] border-white bg-gradient-to-l from-red-300 to-black/65 text-2xl  flex justify-center items-center text-white text-center">
+        <div class="h-14 rounded-md border w-[85%] border-white bg-gradient-to-l from-green-950/80 to-white/40 text-2xl  flex justify-center items-center text-white text-center">
            <a href=""><h1>سفارشات</h1></a> 
         </div>
     </div>

@@ -12,12 +12,12 @@
 <body dir="rtl">
     <?php include "Nahar.php" ?>
     <div class="h-[60vh] w-full bg-no-repeat bg-cover bg-center bg-[url(../images/Hero2.webp)]">
-    <div class="h-full w-full flex flex-col gap-6 justify-center items-center bg-black/25">
+    <div class="h-full w-full flex flex-col gap-6 justify-center items-center text-green-950/80 bg-black/25">
         <h1 class="text-3xl font-bold">مواد غذایی  با کیفیت در درب شما</h1>
         <p class="font-bold text-xl">ما کیفت را تحویل میدهیم و سالهاست که این کار را  انجام میدهیم!</p>
     </div>
     <!-- hero endded -->
-     <div class="h-fit w-[80%] flex flex-col my-12 mx-auto gap-6 items-center justify-center">
+     <div class="h-fit w-[80%] flex flex-col my-12 text-green-950/80 mx-auto gap-6 items-center justify-center">
         <h1 class="text-4xl">درباره ما</h1>
         <p class="text-center w-[70%]">رستوران ما با هدف ارائه‌ی تجربه‌ای متفاوت از غذاخوری، فعالیت خود را از سال‌ها پیش آغاز کرده و همواره تلاش نموده است تا با ترکیبی از طعم‌های اصیل، محیطی دلنشین و خدمات حرفه‌ای، رضایت کامل مشتریان را جلب نماید. ما باور داریم که غذا تنها یک نیاز روزانه نیست، بلکه بخشی از فرهنگ، احساس و خاطرات ماست. به همین دلیل، از بهترین مواد اولیه تازه و طبیعی استفاده می‌کنیم تا هر وعده‌ی غذایی نه‌تنها خوش‌طعم، بلکه سالم و مقوی نیز باشد.
 
@@ -28,7 +28,7 @@
 ما در این رستوران، غذا نمی‌فروشیم؛ بلکه لحظه‌هایی خوش، طعمی فراموش‌نشدنی و خاطراتی ماندگار ارائه می‌دهیم. خوشحالیم که میزبان شما هستیم.
 </p>
      </div>
-      <div class=" flex flex-col justify-center items-center gap-12 my-12">
+      <div class=" flex flex-col justify-center items-center gap-12 my-12 text-green-950/80">
     <h1 class=" text-4xl font-bold">کادر مجرب رستوران آماده سرویس دهی</h1>
     <div class="flex justify-center  gap-12 w-[70%] mx-auto h-fit">
         <img src="../images/images1.jpeg" class="h-64 w-[40%]" alt="">
@@ -43,27 +43,27 @@
     </div>
   </div>
  <!-- endded -->
-  <div class=" w-full h-[40vh] bg-red-200 flex flex-col justify-center items-center ">
+  <div class=" w-full h-[40vh] bg-green-950/80 flex flex-col justify-center items-center ">
         <div class="w-full h-[80%] border-b border-white flex justify-between items-center px-12">
             <div class="flex flex-col gap-4">
             <h1 class="font-bold text-2xl text-white">شبکه های اجتاعی</h1>
             <div class="flex space-x-5">
-                <button class="p-3 rounded-full bg-white text-red-300">
+                <button class="p-3 rounded-full bg-white text-green-950/80">
                     <i class="fab fa-facebook-f"></i>
                 </button>
-                <button class="p-3 rounded-full bg-white text-red-300">
+                <button class="p-3 rounded-full bg-white text-green-950/80">
                     <i class="fab fa-instagram"></i>
                 </button>
-                <button class="p-3 rounded-full bg-white text-red-300">
+                <button class="p-3 rounded-full bg-white text-green-950/80">
                     <i class="fab fa-twitter"></i>
                 </button>
-                <button class="p-3 rounded-full bg-white text-red-300">
+                <button class="p-3 rounded-full bg-white text-green-950/80">
                     <i class="fab fa-telegram-plane"></i>
                 </button>
-                <button class="p-3 rounded-full bg-white text-red-300">
+                <button class="p-3 rounded-full bg-white text-green-950/80">
                     <i class="fab fa-whatsapp"></i>
                 </button>
-                <button class="p-3 rounded-full bg-white text-red-300">
+                <button class="p-3 rounded-full bg-white text-green-950/80">
                     <i class="fab fa-linkedin-in"></i>
                 </button>
                 </div>

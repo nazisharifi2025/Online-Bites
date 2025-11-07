@@ -1,3 +1,8 @@
+<?php
+include "Connict.php";
+$q = "SELECT f.id,f.FoodName,f.Description,f.price,f.CatagoriId,c.id,c.CatagoriName FROM foods as f inner join catagori as c on f.catagoriId = c.id";
+$result = $connict->query($q);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,9 +39,26 @@
                 <a href="home.php">خروج</a>
             </div>
             <div class="h-full w-full flex justify-center items-center flex-col gap-6">
-    <div class="h-[60vh] w-[70%]  text-center font-bold text-xl  rounded-md bg-gradient-to-l flex-col gap-6 from-green-950/80 to-white/40 text-white flex justify-center items-center border py-3">
-        <h1 class="text-3xl">در باره ما</h1>
-        <p class="w-[70%]">این بخش مدریت رستورانت است شما میتوانید غذا های  مد نظر خود را از این بخش اضافه کنید.</p>
+    <div class="h-[80vh] w-[98%]  text-center font-bold text-xl p-2 rounded-md bg-gradient-to-l flex-col gap-6 from-green-950/80 to-white/40 text-white flex justify-center items-center border py-3">
+        <h1 class="font-bold text-3xl">مینوی غذاها</h1>
+        <table class="w-full p-3">
+            <tr class="border-b border-green-950 px-2">
+            <th class="py-3 text-start">نام غذا</th>
+            <th class="py-3 text-start">دسته بندی</th>
+            <th class="py-3 text-start">توصیف</th>
+            <th class="py-3 text-start">قیمت</th>
+            <th class="py-3 text-start">عملیات</th>
+            </tr>
+            <?php while($row=$result->fetch_assoc()){ ?>
+                <tr class="py-4 border-b border-green-950">
+                    <td class="p-2 text-start"><?php echo $row["FoodName"] ?></td>
+                    <td class="p-2 text-start"><?php echo $row["CatagoriName"] ?></td>
+                    <td class="p-2 text-start"><?php echo $row["Description"] ?></td>
+                    <td class="p-2 text-start"><?php echo $row["price"] ?></td>
+                    <td class="p-2 text-start">حذف</td>
+                </tr>
+                <?php } ?>
+        </table>
    </div>
     </div>
         </div>

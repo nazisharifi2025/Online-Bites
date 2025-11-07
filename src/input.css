@@ -1,1 +1,18 @@
 @import "tailwindcss";
+@theme {
+  --color-bgcon: rgba(0, 81, 72, 0.9);
+  --color-bgfi: rgba(255, 255, 255, 0.1);
+  --color-naz: rgba(255, 255, 255, 0.5);
+  --color-coffe: rgba(255, 255, 255, 0.9);
+  --color-nav1: rgb(37, 22, 74);
+  --color-greenC: rgb(0, 81, 72);
+  --color-butten: rgb(63, 24, 151);
+  --color-profiel: rgb(36, 24, 82);
+  --color-vNav: rgb(18, 9, 63);
+  --color-nav2: rgb(10, 16, 80);
+  --color-hnav: rgb(37, 22, 90);
+  --color-navar1: rgb(18, 0, 50);
+  --color-um: rgb(32, 17, 61);
+  --color-mint-500: oklch(0.72 0.11 178);
+  --font-kalam: "Kalam-Regular", cursive;
+};
