@@ -17,16 +17,16 @@ $result = $connict->query($q);
      <div class="w-[30%] h-full bg-green-950/75 flex flex-col gap-6 pt-6">
         <h1 class="text-3xl font-bold text-center p-4 text-white">رستورانت آنلاین</h1>
         <div class="py-2 text-white bg-black/25 flex justify-center items-center ">
-            <a href=""><h1 class="font-bold text-2xl">غذا ها</h1></a>
+            <a href="Fooda.php"><h1 class="font-bold text-2xl">غذا ها</h1></a>
         </div>
         <div class="py-2 text-white bg-black/25 flex justify-center items-center ">
-            <a href=""><h1 class="font-bold text-2xl">دسته بندی ها</h1></a>
+            <a href="Catagoria.php"><h1 class="font-bold text-2xl">دسته بندی ها</h1></a>
         </div>
         <div class="py-2 text-white bg-black/25 flex justify-center items-center ">
             <a href=""><h1 class="font-bold text-2xl">سفارشات </h1></a>
         </div>
         <div class="py-2 text-white bg-black/25 flex justify-center items-center ">
-           <a href=""><h1 class="font-bold text-2xl">درباره</h1></a>
+           <a href="Abouta.php"><h1 class="font-bold text-2xl">درباره</h1></a>
         </div>
        
      </div>
@@ -39,8 +39,9 @@ $result = $connict->query($q);
                 <a href="home.php">خروج</a>
             </div>
             <div class="h-full w-full flex justify-center items-center flex-col gap-6">
-    <div class="h-[80vh] w-[98%]  text-center font-bold text-xl p-2 rounded-md bg-gradient-to-l flex-col gap-6 from-green-950/80 to-white/40 text-white flex justify-center items-center border py-3">
-        <h1 class="font-bold text-3xl">مینوی غذاها</h1>
+    <div class="h-[80vh] w-[98%]  text-center font-bold text-xl p-2 rounded-md bg-gradient-to-l flex-col items-end gap-6 from-green-950/80 to-white/40 text-white flex justify-center border py-3">
+        <h1 class="font-bold text-3xl mx-auto">مینوی غذاها</h1>
+        <button class="px-3 py-2 bg-green-950/80 text-white rounded-md w-fit "><a href="InserFood.php" >اضافه کردن غذا جدید</a></button>
         <table class="w-full p-3">
             <tr class="border-b border-green-950 px-2">
             <th class="py-3 text-start">نام غذا</th>
@@ -55,7 +56,7 @@ $result = $connict->query($q);
                     <td class="p-2 text-start"><?php echo $row["CatagoriName"] ?></td>
                     <td class="p-2 text-start"><?php echo $row["Description"] ?></td>
                     <td class="p-2 text-start"><?php echo $row["price"] ?></td>
-                    <td class="p-2 text-start">حذف</td>
+                    <td class="p-2 text-start" ><a href="" class="px-5 py-1 rounded-md bg-green-950/80">حذف</a></td>
                 </tr>
                 <?php } ?>
         </table>

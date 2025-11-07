@@ -12,16 +12,16 @@
      <div class="w-[30%] h-full bg-green-950/75 flex flex-col gap-6 pt-6">
         <h1 class="text-3xl font-bold text-center p-4 text-white">رستورانت آنلاین</h1>
         <div class="py-2 text-white bg-black/25 flex justify-center items-center ">
-            <a href=""><h1 class="font-bold text-2xl">غذا ها</h1></a>
+            <a href="Fooda.php"><h1 class="font-bold text-2xl">غذا ها</h1></a>
         </div>
         <div class="py-2 text-white bg-black/25 flex justify-center items-center ">
-            <a href=""><h1 class="font-bold text-2xl">دسته بندی ها</h1></a>
+            <a href="Catagoria.php"><h1 class="font-bold text-2xl">دسته بندی ها</h1></a>
         </div>
         <div class="py-2 text-white bg-black/25 flex justify-center items-center ">
             <a href=""><h1 class="font-bold text-2xl">سفارشات </h1></a>
         </div>
         <div class="py-2 text-white bg-black/25 flex justify-center items-center ">
-           <a href=""><h1 class="font-bold text-2xl">درباره</h1></a>
+           <a href="َAbouta.php"><h1 class="font-bold text-2xl">درباره</h1></a>
         </div>
        
      </div>

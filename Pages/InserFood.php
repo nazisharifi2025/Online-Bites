@@ -1,5 +1,7 @@
 <?php
-include "connict.php";
+include "Connict.php";
+$q = "SELECT f.id,f.FoodName,f.Description,f.price,f.CatagoriId,c.id,c.CatagoriName FROM foods as f inner join catagori as c on f.catagoriId = c.id";
+$result = $connict->query($q);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,7 +13,7 @@ include "connict.php";
     <!-- <link rel="stylesheet" href="../src/output.css"> -->
 </head>
 <body>
-    <div class="w-full h-screen flex  ">
+    <div class="w-full h-screen flex ">
      <div class="w-[30%] h-full bg-green-950/75 flex flex-col gap-6 pt-6">
         <h1 class="text-3xl font-bold text-center p-4 text-white">رستورانت آنلاین</h1>
         <div class="py-2 text-white bg-black/25 flex justify-center items-center ">
@@ -30,34 +32,26 @@ include "connict.php";
      </div>
       <!-- div 1 -->
        <div dir="rtl" class=" h-full flex w-[100%] flex-col bg-green-950/80">
-            <div  class="w-full h-20 shadow-xl font-bold shadow-black-600 flex space-x-7 justify-start items-center text-white px-4">
+            <div  class="w-full h-20 shadow-md font-bold shadow-gray-600 flex space-x-7 justify-start items-center text-white px-4">
                 <a href="home.php">صفحه اصلی</a>
                 <a href="Dashbord.php">داشبورد</a>
                 <a href="Abouta.php">درباره</a>
                 <a href="home.php">خروج</a>
             </div>
             <div class="h-full w-full flex justify-center items-center flex-col gap-6">
-    <div class="h-16 w-[70%] bg-black/25 text-center font-bold text-xl relative text-white py-3">
-           <?php
-    if(isset($_GET['login'])){
-  if($_GET["login"]=== "success"){
-    echo "<h1 class='absolute top-2 left-60 text-white text-2xl '>ورود شما با موفقیت انجام شد</h1>";
-  }
-}
-    ?>
+                <form action="" class="h-[60vh] w-[50%]  text-center items-center font-bold text-xl  bg-black/40 rounded-md  flex-col gap-6  text-white flex justify-center  py-3">
+                    <h1 >اضافه کردن دسته بندی</h1>
+                    <div class="w-[80%] flex flex-col items-start mx-auto">
+                    <label for="">نام دسته بندی:</label>
+                    <input type="text" name="Name" class="border-white bg-gradient-to-l w-full outline-0 from-green-950/80 to-white/40 border rounded-md py-2 px-5">
+                    </div>
+                    <div class="w-[80%] flex flex-col items-start mx-auto">
+                    <label for="">توصیف:</label>
+                    <input type="text" name="Name" class="border-white bg-gradient-to-l w-full outline-0 from-green-950/80 to-white/40 border rounded-md py-2 px-5">
+                    </div>
+                    <button class="border-white bg-gradient-to-l w-fit outline-0 from-green-950/80 to-white/40 border rounded-md py-2 px-9">ارسال</button>
+                </form>
     </div>
-    <div class="bg-black/25 w-[70%] h-[60vh] flex flex-col justify-center gap-8 items-center p-12">
-        <div class="h-14 rounded-md border w-[85%] border-white bg-gradient-to-l from-green-950/80 to-white/40 text-2xl  flex justify-center items-center text-white text-center">
-           <a href="Fooda.php"><h1>غذا ها</h1></a> 
-        </div>
-        <div class="h-14 rounded-md border w-[85%] border-white bg-gradient-to-l from-green-950/80 to-white/40 text-2xl  flex justify-center items-center text-white text-center">
-           <a href="Catagoria.php"><h1>دسته بندی ها </h1></a> 
-        </div>
-        <div class="h-14 rounded-md border w-[85%] border-white bg-gradient-to-l from-green-950/80 to-white/40 text-2xl  flex justify-center items-center text-white text-center">
-           <a href=""><h1>سفارشات</h1></a> 
-        </div>
-    </div>
-</div>
         </div>
     </div>
 </body>
