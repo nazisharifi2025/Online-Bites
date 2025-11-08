@@ -1,16 +1,7 @@
 <?php
 include "Connict.php";
-if($_SERVER["REQUEST_METHOD"] === "POST"){
-    $Name = $_POST["Name"];
-    $Des = $_POST["Des"];
-    $q = "INSERT INTO catagori(catagoriName,Discription)VALUES('$Name','$Des')";
-    if($connict->query($q) === true){
-        header("location: Catagoria.php");
-    }
-    else{
-         header("location: InserCatagoi.php");
-    }
-}
+$q = "SELECT * from catagori";
+$result = $connict->query($q);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,7 +26,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
             <a href=""><h1 class="font-bold text-2xl">سفارشات </h1></a>
         </div>
         <div class="py-2 text-white bg-black/25 flex justify-center items-center ">
-           <a href="Abouta.php"><h1 class="font-bold text-2xl">درباره</h1></a>
+           <a href=""><h1 class="font-bold text-2xl">درباره</h1></a>
         </div>
        
      </div>
@@ -48,18 +39,24 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
                 <a href="home.php">خروج</a>
             </div>
             <div class="h-full w-full flex justify-center items-center flex-col gap-6">
-                <form action=<?php echo $_SERVER["PHP_SELF"]; ?> method="POST" class="h-[60vh] w-[50%]  text-center items-center font-bold text-xl  bg-black/40 rounded-md  flex-col gap-6  text-white flex justify-center  py-3">
-                    <h1 >اضافه کردن دسته بندی</h1>
-                    <div class="w-[80%] flex flex-col items-start mx-auto">
-                    <label for="">نام دسته بندی:</label>
-                    <input type="text" name="Name" class="border-white bg-gradient-to-l w-full outline-0 from-green-950/80 to-white/40 border rounded-md py-2 px-5">
-                    </div>
-                    <div class="w-[80%] flex flex-col items-start mx-auto">
-                    <label for="">توصیف:</label>
-                    <input type="text" name="Des" class="border-white bg-gradient-to-l w-full outline-0 from-green-950/80 to-white/40 border rounded-md py-2 px-5">
-                    </div>
-                    <button class="border-white bg-gradient-to-l w-fit outline-0 from-green-950/80 to-white/40 border rounded-md py-2 px-9">ارسال</button>
-                </form>
+    <div class="h-[80vh] w-[98%]  text-center font-bold text-xl p-2 rounded-md bg-gradient-to-l flex-col items-end gap-6 from-green-950/80 to-white/40 text-white flex justify-center border py-3">
+        <h1 class="font-bold text-3xl mx-auto">دسته بندی ها</h1>
+        <button class="px-3 py-2 bg-green-950/80 text-white rounded-md w-fit "><a href="InserCatagoi.php" >اضافه کردن دسته بندی جدید</a></button>
+        <table class="w-full p-3">
+            <tr class="border-b border-green-950 px-2">
+            <th class="py-3 text-start">نام دسته</th>
+            <th class="py-3 text-start">توصیف</th>
+            <th class="py-3 text-start">عملیات</th>
+            </tr>
+            <?php while($row=$result->fetch_assoc()){ ?>
+                <tr class="py-4 border-b border-green-950">
+                    <td class="p-2 text-start"><?php echo $row["catagoriName"] ?></td>
+                    <td class="p-2 text-start"><?php echo $row["Discription"] ?></td>
+                    <td class="p-2 text-start" ><a href="DeleteC.php?id=<?php echo $row['id']; ?>" class="px-5 py-1 rounded-md bg-green-950/80">حذف</a></td>
+                </tr>
+                <?php } ?>
+        </table>
+   </div>
     </div>
         </div>
     </div>
