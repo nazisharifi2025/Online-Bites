@@ -6,9 +6,13 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
     $Email = $_POST["Email"];
     $Password = $_POST["password"];
     $q = "INSERT INTO customer(name,lastName,email)VALUES('$Name','$Email','$Password')";
-    $result =  $connict->query($q);
+     if( $connict->query($q)){
+      echo "<script>alert('خوش آمدی " . htmlspecialchars($Name) . "');</script>";
+     }else{
+        echo "Error: " . $q . "<br>" . $connict->error;
+     }
 }
-?>
+?>  
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,29 +34,11 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
             <li><a href="contuct.php">تماس با ما </a></li>
             <li><a href="AdmenPage.php">بخش مدریت</a></li>
             <li id="a">عضویت</li>
-            <?php if($result === true){ ?>
-                <?php } ?>
-            <li id="ao">ورود</li>
-        </ul>
-          <div id="opening" class="h-screen w-full  justify-center hidden absolute top-0 right-0 items-start py-12 bg-black/45">
-            <i id="close" class="fas fa-times text-4xl absolute top-5 right-6"></i>
-                <form action=<?php echo $_SERVER["PHP_SELF"] ?> method="POST" class="w-[700px] h-[40vh] text-gray-500 bg-white gap-4 flex flex-col justify-center   p-3 shadow-lg shadow-gray-400">
-        <h1 class="text-2xl font-bold">ورود به حساب کاربری</h1>
-        <div>
-            <label for="Email" class="font-bold">ایمیل</label>
-            <input type="text" class="border-b w-full py-1 border-gray-500 outline-0">
-        </div>
-        <div>
-            <label for="Email" class="font-bold">کلمه عبور</label>
-            <input type="text" class="border-b w-full py-1 border-gray-500 outline-0">
-        </div>
-        <button class=" bg-cyan-700 text-white py-3 px-6 rounded-md mx-auto w-fit">ثبت نام</button>
-       </form>
-        </div>
+        </ul>        
         <!-- one dev added -->
               <div id="open" class="h-screen w-full  justify-center hidden absolute top-0 right-0 items-start py-12 bg-black/45">
             <i id="times" class="fas fa-times text-4xl absolute top-5 right-6"></i>
-                <form action="" class="w-[700px] h-[60vh] text-gray-500 bg-white gap-4 flex flex-col justify-center   p-3 shadow-lg shadow-gray-400">
+                <form action=<?php echo $_SERVER["PHP_SELF"] ?> method="post" class="w-[700px] h-[60vh] text-gray-500 bg-white gap-4 flex flex-col justify-center   p-3 shadow-lg shadow-gray-400">
         <h1 class="text-2xl font-bold">عضویت در رستورانت</h1>
         <div>
             <label for="Email" class="font-bold">نام :</label>

@@ -6,7 +6,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $Cat = $_POST['Cat'];   
     $des = $_POST['Des'];
     $Price = $_POST['Price'];
-    $dastor = "INSERT INTO foods (FoodName, Description, price,CatagoriId) VALUES ('$Name', '$des', '$Price', '$Cat')";
+    $img = $_FILES['img'];
+    $tempname = $_FILES['img']['tmp_name'];
+    $folder = "../images/" . $img;
+    $dastor = "INSERT INTO foods (FoodName, Description, price,CatagoriId,img) VALUES ('$Name', '$des', '$Price', '$Cat','$img')";
+    move_uploaded_file($tempname, $folder);
     if ($connict->query($dastor) === true) {
         header("location:Fooda.php?messege=Success");
     } else {
@@ -64,6 +68,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <label for="">قیمت:</label>
                     <input type="text" name="Price" class="border-white bg-gradient-to-l w-full outline-0 from-green-950/80 to-white/40 border rounded-md py-2 px-5">
                     </div>
+                    <div class="w-[80%] flex flex-col items-start mx-auto">
+                    <label for="">عکس:</label>
+                    <input type="file" name="img" class="border-white bg-gradient-to-l w-full outline-0 from-green-950/80 to-white/40 border rounded-md py-2 px-5">
+                    </div>
+                    
                     <div class="w-[80%] flex flex-col items-start mx-auto">
                         <label for="">دسته بندی:</label>
                      <select name="Cat" id="" class="border-white bg-gradient-to-l w-full outline-0 from-green-950/80 to-white/40 border rounded-md py-2 px-5">

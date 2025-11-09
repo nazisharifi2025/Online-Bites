@@ -23,7 +23,7 @@ $result = $connict->query($q);
             <a href="Catagoria.php"><h1 class="font-bold text-2xl">دسته بندی ها</h1></a>
         </div>
         <div class="py-2 text-white bg-black/25 flex justify-center items-center ">
-            <a href=""><h1 class="font-bold text-2xl">سفارشات </h1></a>
+            <a href="Order.php"><h1 class="font-bold text-2xl">سفارشات </h1></a>
         </div>
         <div class="py-2 text-white bg-black/25 flex justify-center items-center ">
            <a href=""><h1 class="font-bold text-2xl">درباره</h1></a>

@@ -1,3 +1,8 @@
+<?php
+    include "connict.php";
+    $q = "SELECT * FROM foods";
+    $result = $connict->query($q);
+    ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,15 +23,19 @@
     </div>
     <!-- hero endded -->
      <div class="h-fit w-[80%] grid grid-cols-3  my-12 mx-auto text-green-950/80 gap-6 items-center justify-center">
-        <div class="h-fit w-[330px] shadow-md shadow-gray-500 flex-col justify-center">
-            <img src="../images/ka2.jpg" class="w-full h-[35vh]" alt="">
+        <!-- کباب شروع -->
+         <?php while($row=$result->fetch_assoc()){ ?>
+            <div class="h-fit w-[330px] shadow-md shadow-gray-500 flex-col justify-center">
+            <img src="<?php echo $row["img"] ?>" class="w-full h-[35vh]" alt="">
             <div class="flex justify-between items-center px-5 w-full">
-                <h2  class="text-2xl px-3">چپلی کباب</h2>
+                <h2  class="text-2xl px-3"><?php echo $row["FoodName"] ?></h2>
                 <i class="fas fa-utensils text-2xl"></i>
             </div>
-            <p class="p-3">چپلی کباب از کباب های محلی  و مشهور رستورانت ما!</p>
+            <p class="p-3"><?php echo $row["Description"] ?></p>
             <button class="p-3 text-white bg-green-950/80 w-[80%] mx-4 shadow-md shadow-gray-500 hover:shdaow-sm my-3">سفاریش دهید</button>
         </div>
+            <?php } ?>
+<!--         
         <div class="h-fit w-[330px] shadow-md shadow-gray-500 flex-col justify-center items-start">
             <img src="../images/ka1.jpg" class="w-full h-[35vh]" alt="">
             <div class="flex justify-between items-center px-5 w-full">
@@ -44,9 +53,9 @@
             </div>
             <p class="p-3">کباب مرغ با بالاترین کیفیت و مزه !</p>
             <button class="p-3 text-white bg-green-950/80 w-[80%] mx-4 shadow-md shadow-gray-500 hover:shdaow-sm my-3">سفاریش دهید</button>
-        </div>
+        </div> -->
         <!-- کباب تمام -->
-        <div class="h-fit w-[330px] shadow-md shadow-gray-500 flex-col justify-center items-start">
+        <!-- <div class="h-fit w-[330px] shadow-md shadow-gray-500 flex-col justify-center items-start">
             <img src="../images/q1.jpg" class="w-full h-[35vh]" alt="">
             <div class="flex justify-between items-center px-5 w-full">
                 <h2  class="text-2xl px-3">سینی</h2>
@@ -72,9 +81,9 @@
             </div>
             <p class="p-3">قابلی پلو یکی از پر طرفدار ترین و بامزه ترین غذای افغانی است </p>
             <button class="p-3 text-white bg-green-950/80 w-[80%] mx-4 shadow-md shadow-gray-500 hover:shdaow-sm my-3">سفاریش دهید</button>
-        </div>
+        </div> -->
         <!-- برنج تمام -->
-        <div class="h-fit w-[330px] shadow-md shadow-gray-500 flex-col justify-center items-start">
+        <!-- <div class="h-fit w-[330px] shadow-md shadow-gray-500 flex-col justify-center items-start">
             <img src="../images/ئد1.jpg" class="w-full h-[35vh]" alt="">
             <div class="flex justify-between items-center px-5 w-full">
                 <h2  class="text-2xl px-3">منتو ایرانی</h2>
@@ -100,8 +109,8 @@
             </div>
             <p class="p-3">آش سبزی یکی از عذاهای محلی ساده ما است که به طعم آن هیچ غذایی نمیرسد</p>
             <button class="p-3 text-white bg-green-950/80 w-[80%] mx-4 shadow-md shadow-gray-500 hover:shdaow-sm my-3">سفاریش دهید</button>
-        </div>
-     </div>
+        </div>-->
+     </div> 
  <!-- endded -->
   <div class=" w-full h-[40vh] bg-green-950/80 flex flex-col justify-center items-center ">
         <div class="w-full h-[80%] border-b border-white flex justify-between items-center px-12">

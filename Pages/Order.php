@@ -1,6 +1,6 @@
 <?php
 include "Connict.php";
-$q = "SELECT * from catagori";
+$q = "SELECT o.id, o.foodId,o.userId,o.created_at ,c.id,c.name,f.id ,f.FoodName from orders as o inner join customer as c on o.userId = c.id inner join foods as f on o.foodId = f.id";
 $result = $connict->query($q);
 ?>
 <!DOCTYPE html>
@@ -40,19 +40,19 @@ $result = $connict->query($q);
             </div>
             <div class="h-full w-full flex justify-center items-center flex-col gap-6">
     <div class="h-[80vh] w-[98%]  text-center font-bold text-xl p-2 rounded-md bg-gradient-to-l flex-col items-end gap-6 from-green-950/80 to-white/40 text-white flex justify-center border py-3">
-        <h1 class="font-bold text-3xl mx-auto">دسته بندی ها</h1>
-        <button class="px-3 py-2 bg-green-950/80 text-white rounded-md w-fit "><a href="InserCatagoi.php" >اضافه کردن دسته بندی جدید</a></button>
-        <table class="w-full p-3">
+        <h1 class="font-bold text-3xl mx-auto">سفارشات</h1>
+        <!-- <button class="px-3 py-2 bg-green-950/80 text-white rounded-md w-fit "><a href="InserCatagoi.php" >اضافه کردن دسته بندی جدید</a></button> -->
+        <table class="w-full p-6 overflow-y-scroll overscroll-y-none">
             <tr class="border-b border-green-950 px-2">
-            <th class="py-3 text-start">نام دسته</th>
-            <th class="py-3 text-start">توصیف</th>
-            <th class="py-3 text-start">عملیات</th>
+            <th class="py-3 text-start">نام غذا</th>
+            <th class="py-3 text-start">نام مشتری</th>
+            <th class="py-3 text-start">تاریخ</th>
             </tr>
             <?php while($row=$result->fetch_assoc()){ ?>
                 <tr class="py-4 border-b border-green-950">
-                    <td class="p-2 text-start"><?php echo $row["catagoriName"] ?></td>
-                    <td class="p-2 text-start"><?php echo $row["Discription"] ?></td>
-                    <td class="p-2 text-start" ><a href="DeleteC.php?id=<?php echo $row['id']; ?>" class="px-5 py-1 rounded-md bg-green-950/80">حذف</a></td>
+                    <td class="p-2 text-start"><?php echo $row["FoodName"] ?></td>
+                    <td class="p-2 text-start"><?php echo $row["name"] ?></td>
+                    <td class="p-2 text-start" ><?php echo $row["created_at"] ?></td>
                 </tr>
                 <?php } ?>
         </table>
