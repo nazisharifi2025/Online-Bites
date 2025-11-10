@@ -1,6 +1,11 @@
 <?php
 include "Connict.php";
-
+session_start();
+if(!isset($_SESSION['user_id'])){
+    header("Location:AdmenPage.php");
+    exit(); 
+}
+$userId = $_SESSION['user_id'];
 $numberof_student_parpage = 3;
 $start = 0;
 $page = 1;

@@ -1,5 +1,11 @@
 <?php
 include "Connict.php";
+session_start();
+if(!isset($_SESSION['user_id'])){
+    header("Location:AdmenPage.php");
+    exit(); 
+}
+$userId = $_SESSION['user_id'];
 $Catagori = $connict->query("SELECT * FROM catagori");
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

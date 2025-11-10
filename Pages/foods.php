@@ -1,7 +1,20 @@
 <?php
     include "connict.php";
-    $q = "SELECT * FROM foods order by created_at DESC";
+    $numberof_student_parpage = 3;
+$start = 0;
+$page = 1;
+// اگر شماره صفحه از URL آمده باشد، $start را محاسبه کن
+if(isset($_GET["page_nr"])){
+    $nr_page = $_GET["page_nr"] - 1;
+    $page = $_GET["page_nr"];
+    $start = $nr_page * $numberof_student_parpage; 
+}
+    $q = "SELECT * FROM foods ORDER BY created_at DESC LIMIT $start, $numberof_student_parpage";
     $result = $connict->query($q);
+    $newQuery = "SELECT * FROM foods";
+$resutpage = $connict->query($newQuery);
+$numb_row = $resutpage->num_rows;
+$pages = ceil($numb_row / $numberof_student_parpage);
     ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -36,6 +49,36 @@
         </div>
             <?php } ?>
      </div> 
+     <!-- product endded -->
+             <div class="w-full text-center flex justify-center text-green-950/80 items-center px-12 py-3 font-black text-3xl">صفحه <?php echo $page ?>از  <?php echo $pages ?> هستید</div>
+             <div class="flex justify-between items-center w-full px-12 py-12">
+                <div>
+                <a href="?page_nr=1" class="px-12 py-3 rounded-full shadow-md shadow-gray-500 text-white bg-green-950/80">اولین</a>
+                </div> 
+                <div class="flex gap-4 items-center bg-green-950/80 p-2 rounded-full text-green-950/80">
+                  <?php $page_nr = isset($_GET['page_nr']) ? (int)$_GET['page_nr'] : 1; ?>
+
+<?php if($page_nr > 1){ ?>
+    <a href="?page_nr=<?php echo $page_nr - 1 ?>"><i class="fa-solid fa-chevron-right bg-white p-2 rounded-r-full shadow-md shadow-gray-500"></i></a>
+<?php } else { ?>
+    <i class="fa-solid fa-chevron-right bg-white p-2 rounded-r-full shadow-md shadow-gray-500"></i>
+<?php } ?>
+
+<?php for($i = 1 ; $i <= $pages; $i++){ ?>               
+    <a href="?page_nr=<?php echo $i ?>"><span class="py-1 rounded-md bg-white shadow-md shadow-gray-500 px-3"><?php echo $i ?></span></a>
+<?php } ?>
+
+<?php if($page_nr < $pages){ ?>
+    <a href="?page_nr=<?php echo $page_nr + 1 ?>"><i class="fa-solid fa-chevron-left bg-white p-2 rounded-l-full shadow-md shadow-gray-500"></i></a>
+<?php } else { ?>
+    <i class="fa-solid fa-chevron-left bg-white p-2 rounded-l-full shadow-md shadow-gray-500"></i>
+<?php } ?>
+
+                </div>
+                <div>
+                <a href="?page_nr=<?php echo $pages ?>" class="px-12 py-3 rounded-full shadow-md shadow-gray-500 text-white bg-green-950/80">آخرین</a>
+             </div> 
+             </div>
  <!-- endded -->
   <div class=" w-full h-[40vh] bg-green-950/80 flex flex-col justify-center items-center ">
         <div class="w-full h-[80%] border-b border-white flex justify-between items-center px-12">

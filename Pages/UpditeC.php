@@ -1,5 +1,11 @@
 <?php
 include "Connict.php";
+session_start();
+if(!isset($_SESSION['user_id'])){
+    header("Location:AdmenPage.php");
+    exit(); 
+}
+$userId = $_SESSION['user_id'];
 $id = $_GET['id'];
 $result = $connict->query("SELECT * FROM catagori WHERE id=$id");
 $rows=$result->fetch_assoc();

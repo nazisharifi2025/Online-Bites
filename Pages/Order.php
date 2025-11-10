@@ -1,5 +1,11 @@
 <?php
 include "Connict.php";
+session_start();
+if(!isset($_SESSION['user_id'])){
+    header("Location:AdmenPage.php");
+    exit(); 
+}
+$userId = $_SESSION['user_id'];
 $q = "SELECT o.id, o.foodId,o.userId,o.created_at ,c.id,c.name,f.id ,f.FoodName from orders as o inner join customer as c on o.userId = c.id inner join foods as f on o.foodId = f.id";
 $result = $connict->query($q);
 ?>

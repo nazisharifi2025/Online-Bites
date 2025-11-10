@@ -1,3 +1,12 @@
+<?php
+include "Connict.php";
+session_start();
+if(!isset($_SESSION['user_id'])){
+    header("Location:AdmenPage.php");
+    exit(); 
+}
+$userId = $_SESSION['user_id'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
