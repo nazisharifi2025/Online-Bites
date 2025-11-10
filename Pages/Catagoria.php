@@ -26,14 +26,14 @@ $result = $connict->query($q);
             <a href="Order.php"><h1 class="font-bold text-2xl">سفارشات </h1></a>
         </div>
         <div class="py-2 text-white bg-black/25 flex justify-center items-center ">
-           <a href=""><h1 class="font-bold text-2xl">درباره</h1></a>
+           <a href="Abouta.php"><h1 class="font-bold text-2xl">درباره</h1></a>
         </div>
        
      </div>
       <!-- div 1 -->
        <div dir="rtl" class=" h-full flex w-[100%] flex-col bg-green-950/80">
             <div  class="w-full h-20 shadow-md font-bold shadow-gray-600 flex space-x-7 justify-start items-center text-white px-4">
-                <a href="home.php">صفحه اصلی</a>
+                <a href="home.php" class="ml-6">صفحه اصلی</a>
                 <a href="Dashbord.php">داشبورد</a>
                 <a href="Abouta.php">درباره</a>
                 <a href="home.php">خروج</a>
@@ -47,12 +47,14 @@ $result = $connict->query($q);
             <th class="py-3 text-start">نام دسته</th>
             <th class="py-3 text-start">توصیف</th>
             <th class="py-3 text-start">عملیات</th>
+            <th class="py-3 text-start">عملیات</th>
             </tr>
             <?php while($row=$result->fetch_assoc()){ ?>
                 <tr class="py-4 border-b border-green-950">
                     <td class="p-2 text-start"><?php echo $row["catagoriName"] ?></td>
                     <td class="p-2 text-start"><?php echo $row["Discription"] ?></td>
                     <td class="p-2 text-start" ><a href="DeleteC.php?id=<?php echo $row['id']; ?>" class="px-5 py-1 rounded-md bg-green-950/80">حذف</a></td>
+                    <td class="p-2 text-start" ><a href="UpditeC.php?id=<?php echo $row['id']; ?>" class="px-5 py-1 rounded-md bg-green-950/80">ویرایش</a></td>
                 </tr>
                 <?php } ?>
         </table>

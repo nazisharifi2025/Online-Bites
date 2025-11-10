@@ -28,7 +28,7 @@
       <!-- div 1 -->
        <div dir="rtl" class=" h-full flex w-[100%] flex-col bg-green-950/80">
             <div  class="w-full h-20 shadow-md font-bold shadow-gray-600 flex space-x-7 justify-start items-center text-white px-4">
-                <a href="home.php">صفحه اصلی</a>
+                <a href="home.php" class="ml-6">صفحه اصلی</a>
                 <a href="Dashbord.php">داشبورد</a>
                 <a href="Abouta.php">درباره</a>
                 <a href="home.php">خروج</a>

@@ -1,17 +1,23 @@
 <?php
 include "Connict.php";
-if($_SERVER["REQUEST_METHOD"] === "POST"){
-    $Name = $_POST["Name"];
-    $Des = $_POST["Des"];
-    $q = "INSERT INTO catagori(catagoriName,Discription)VALUES('$Name','$Des')";
-    if($connict->query($q) === true){
-        header("location: Catagoria.php");
-    }
-    else{
-         header("location: InserCatagoi.php");
-    }
+$id = $_GET['id'];
+$result = $connict->query("SELECT * FROM foods WHERE id=$id");
+$rows=$result->fetch_assoc();
+
+if (isset($_POST['Submit'])) {
+    $Name = $_POST['Name'];
+    $Des = $_POST['Des'];
+    $Price = $_POST['Price'];
+    // آپلود عکس جدید در صورت انتخاب
+    $_FILES['img']['name'] ;
+        $img = $_FILES['img']['name'];
+        move_uploaded_file($_FILES['img']['tmp_name'], "images/".$img);
+    // اجرای آپدیت
+    $connict->query("UPDATE foods SET FoodName='$Name', Description='$Des', price='$Price', img='$img' WHERE id=$id");
+    header("location:Fooda.php?message=updated");
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,17 +54,25 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
                 <a href="home.php">خروج</a>
             </div>
             <div class="h-full w-full flex justify-center items-center flex-col gap-6">
-                <form action=<?php echo $_SERVER["PHP_SELF"]; ?> method="POST" class="h-[60vh] w-[50%]  text-center items-center font-bold text-xl  bg-black/40 rounded-md  flex-col gap-6  text-white flex justify-center  py-3">
-                    <h1 >اضافه کردن دسته بندی</h1>
+                <form action="" enctype="multipart/form-data" method="POST" class="h-[85vh] w-[50%]  text-center items-center font-bold text-xl  bg-black/40 rounded-md  flex-col gap-6  text-white flex justify-center  py-3">
+                    <h1 >ویرایش غذاها</h1>
                     <div class="w-[80%] flex flex-col items-start mx-auto">
-                    <label for="">نام دسته بندی:</label>
-                    <input type="text" name="Name" class="border-white bg-gradient-to-l w-full outline-0 from-green-950/80 to-white/40 border rounded-md py-2 px-5">
+                    <label for="">نام غذا:</label>
+                    <input type="text"  value="<?php echo $rows['FoodName']; ?>" name="Name" class="border-white bg-gradient-to-l w-full outline-0 from-green-950/80 to-white/40 border rounded-md py-2 px-5">
                     </div>
                     <div class="w-[80%] flex flex-col items-start mx-auto">
                     <label for="">توصیف:</label>
-                    <input type="text" name="Des" class="border-white bg-gradient-to-l w-full outline-0 from-green-950/80 to-white/40 border rounded-md py-2 px-5">
+                    <input type="text" name="Des" value="<?php echo $rows['Description']; ?>" class="border-white bg-gradient-to-l w-full outline-0 from-green-950/80 to-white/40 border rounded-md py-2 px-5">
                     </div>
-                    <button class="border-white bg-gradient-to-l w-fit outline-0 from-green-950/80 to-white/40 border rounded-md py-2 px-9">ارسال</button>
+                    <div class="w-[80%] flex flex-col items-start mx-auto">
+                    <label for="">قیمت:</label>
+                    <input type="text" name="Price" value="<?php echo $rows['price']; ?>" class="border-white bg-gradient-to-l w-full outline-0 from-green-950/80 to-white/40 border rounded-md py-2 px-5">
+                    </div>
+                    <div class="w-[80%] flex flex-col items-start mx-auto">
+                    <label for="">عکس:</label>
+                    <input type="file" name="img" class="border-white bg-gradient-to-l w-full outline-0 from-green-950/80 to-white/40 border rounded-md py-2 px-5">
+                    </div>
+                    <button name="Submit" class="border-white bg-gradient-to-l w-fit outline-0 from-green-950/80 to-white/40 border rounded-md py-2 px-9">ویرایش</button>
                 </form>
     </div>
         </div>

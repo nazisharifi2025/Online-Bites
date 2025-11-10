@@ -1,15 +1,14 @@
 <?php
 include "Connict.php";
-if($_SERVER["REQUEST_METHOD"] === "POST"){
-    $Name = $_POST["Name"];
-    $Des = $_POST["Des"];
-    $q = "INSERT INTO catagori(catagoriName,Discription)VALUES('$Name','$Des')";
-    if($connict->query($q) === true){
-        header("location: Catagoria.php");
-    }
-    else{
-         header("location: InserCatagoi.php");
-    }
+$id = $_GET['id'];
+$result = $connict->query("SELECT * FROM catagori WHERE id=$id");
+$rows=$result->fetch_assoc();
+if (isset($_POST['Submit'])) {
+    $Name = $_POST['Name'];
+    $Des = $_POST['Des'];
+    // اجرای آپدیت
+    $connict->query("UPDATE catagori SET catagoriName='$Name', Discription='$Des' WHERE id=$id");
+    header("location:Catagoria.php?message=updated");
 }
 ?>
 <!DOCTYPE html>
@@ -48,17 +47,17 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
                 <a href="home.php">خروج</a>
             </div>
             <div class="h-full w-full flex justify-center items-center flex-col gap-6">
-                <form action=<?php echo $_SERVER["PHP_SELF"]; ?> method="POST" class="h-[60vh] w-[50%]  text-center items-center font-bold text-xl  bg-black/40 rounded-md  flex-col gap-6  text-white flex justify-center  py-3">
-                    <h1 >اضافه کردن دسته بندی</h1>
+                <form action="" method="POST" class="h-[60vh] w-[50%]  text-center items-center font-bold text-xl  bg-black/40 rounded-md  flex-col gap-6  text-white flex justify-center  py-3">
+                    <h1 >ویرایش کردن دسته بندی</h1>
                     <div class="w-[80%] flex flex-col items-start mx-auto">
                     <label for="">نام دسته بندی:</label>
-                    <input type="text" name="Name" class="border-white bg-gradient-to-l w-full outline-0 from-green-950/80 to-white/40 border rounded-md py-2 px-5">
+                    <input value="<?php echo $rows["catagoriName"] ?>" type="text" name="Name" class="border-white bg-gradient-to-l w-full outline-0 from-green-950/80 to-white/40 border rounded-md py-2 px-5">
                     </div>
                     <div class="w-[80%] flex flex-col items-start mx-auto">
                     <label for="">توصیف:</label>
-                    <input type="text" name="Des" class="border-white bg-gradient-to-l w-full outline-0 from-green-950/80 to-white/40 border rounded-md py-2 px-5">
+                    <input type="text" value="<?php echo $rows["Discription"] ?>" name="Des" class="border-white bg-gradient-to-l w-full outline-0 from-green-950/80 to-white/40 border rounded-md py-2 px-5">
                     </div>
-                    <button class="border-white bg-gradient-to-l w-fit outline-0 from-green-950/80 to-white/40 border rounded-md py-2 px-9">ارسال</button>
+                    <button name="Submit" class="border-white bg-gradient-to-l w-fit outline-0 from-green-950/80 to-white/40 border rounded-md py-2 px-9">ویرایش</button>
                 </form>
     </div>
         </div>

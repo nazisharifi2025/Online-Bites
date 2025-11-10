@@ -5,8 +5,11 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
     $email = $_POST['email'];
     $password = $_POST['password'];
     $sql = "SELECT * FROM admin WHERE Email='$email' AND Password='$password'";
-    $result = $connict->query($sql);
-    if($result->num_rows > 0){
+    if($connict->query($sql)){
+         $result =  $connict->query($sql);
+        while($row = $result->fetch_assoc()){
+            $_SESSION['user_id'] = $row['id'];
+        }
         header("Location: Dashbord.php?login=success");
     }else{
         echo "ایمیل یا رمز عبور اشتباه است";
