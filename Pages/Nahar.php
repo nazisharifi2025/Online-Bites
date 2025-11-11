@@ -1,18 +1,30 @@
 <?php
 include "Connict.php";
-$Users = "SELECT * FROM customer";
-if($_SERVER["REQUEST_METHOD"] === "POST"){
-    $Name = $_POST["Name"];
-    $Email = $_POST["Email"];
-    $Password = $_POST["password"];
-    $q = "INSERT INTO customer(name,lastName,email)VALUES('$Name','$Email','$Password')";
-     if( $connict->query($q)){
-      echo "<script>alert('خوش آمدی " . htmlspecialchars($Name) . "');</script>";
-     }else{
-        echo "Error: " . $q . "<br>" . $connict->error;
-     }
+
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $Name = trim($_POST["Name"]);
+    $Email = trim($_POST["Email"]);
+    $Password = trim($_POST["password"]);
+    $if = $connict->query("SELECT * FROM customer WHERE lastName='$Email' AND email='$Password'");
+    if($if->num_rows > 0){
+        echo "<script>alert('این ایمیل قبلا ثبت شده است');</script>";
+        exit();
+    }
+    else{
+    if (!empty($Name) && !empty($Email) && !empty($Password)) {
+        $q = "INSERT INTO customer(name, lastName, email) VALUES('$Name', '$Email', '$Password')";
+        if ($connict->query($q)) {
+            echo "<script>alert('خوش آمدی " . htmlspecialchars($Name) . "');</script>";
+        } else {
+            echo "Error: " . $q . "<br>" . $connict->error;
+        }
+    } else {
+        echo "<script>alert('لطفاً همه فیلدها را پر کنید');</script>";
+    }
 }
-?>  
+}
+?>
+ 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,7 +44,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
             <li><a href="foods.php">غذا ها</a></li>
             <li><a href="About.php">درباره ما</a></li>
             <li><a href="contuct.php">تماس با ما </a></li>
-            <li><a href="AdmenPage.php">بخش مدریت</a></li>
+            <li><a href="Dashbord.php">بخش مدریت</a></li>
             <li id="a">عضویت</li>
         </ul>        
         <!-- one dev added -->

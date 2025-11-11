@@ -27,7 +27,7 @@ $userId = $_SESSION['user_id'];
             <a href="Catagoria.php"><h1 class="font-bold text-2xl">دسته بندی ها</h1></a>
         </div>
         <div class="py-2 text-white bg-black/25 flex justify-center items-center ">
-            <a href=""><h1 class="font-bold text-2xl">سفارشات </h1></a>
+            <a href="Order.php"><h1 class="font-bold text-2xl">سفارشات </h1></a>
         </div>
         <div class="py-2 text-white bg-black/25 flex justify-center items-center ">
            <a href="Abouta.php"><h1 class="font-bold text-2xl">درباره</h1></a>
@@ -40,7 +40,7 @@ $userId = $_SESSION['user_id'];
                 <a href="home.php" class="ml-6">صفحه اصلی</a>
                 <a href="Dashbord.php">داشبورد</a>
                 <a href="Abouta.php">درباره</a>
-                <a href="home.php">خروج</a>
+                <a href="logout.php">خروج</a>
             </div>
             <div class="h-full w-full flex justify-center items-center flex-col gap-6">
     <div class="h-16 w-[70%] bg-black/25 text-center font-bold text-xl relative text-white py-3">

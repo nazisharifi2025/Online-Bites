@@ -22,6 +22,8 @@ $pages = ceil($numb_row / $numberof_student_parpage);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vazir-font/32.0.0/font-face.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vazir-font@latest/dist/font-face.css">
     <link rel="stylesheet" href="../src/input.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -55,23 +57,23 @@ $pages = ceil($numb_row / $numberof_student_parpage);
                 <div>
                 <a href="?page_nr=1" class="px-12 py-3 rounded-full shadow-md shadow-gray-500 text-white bg-green-950/80">اولین</a>
                 </div> 
-                <div class="flex gap-4 items-center bg-green-950/80 p-2 rounded-full text-green-950/80">
+                <div class="flex gap-4 items-center  p-2 rounded-full text-green-950/80">
                   <?php $page_nr = isset($_GET['page_nr']) ? (int)$_GET['page_nr'] : 1; ?>
 
 <?php if($page_nr > 1){ ?>
-    <a href="?page_nr=<?php echo $page_nr - 1 ?>"><i class="fa-solid fa-chevron-right bg-white p-2 rounded-r-full shadow-md shadow-gray-500"></i></a>
+    <a href="?page_nr=<?php echo $page_nr - 1 ?>"><i class="fa-solid font-bold fa-chevron-right bg-white p-3 rounded-r-full shadow-md shadow-gray-500"></i></a>
 <?php } else { ?>
-    <i class="fa-solid fa-chevron-right bg-white p-2 rounded-r-full shadow-md shadow-gray-500"></i>
+    <i class="fa-solid fa-chevron-right bg-white p-3 rounded-r-full font-bold shadow-md shadow-gray-500"></i>
 <?php } ?>
 
 <?php for($i = 1 ; $i <= $pages; $i++){ ?>               
-    <a href="?page_nr=<?php echo $i ?>"><span class="py-1 rounded-md bg-white shadow-md shadow-gray-500 px-3"><?php echo $i ?></span></a>
+    <a href="?page_nr=<?php echo $i ?>"><span class="py-2 px-4 rounded-full bg-white shadow-md shadow-gray-500 "><?php echo $i ?></span></a>
 <?php } ?>
 
 <?php if($page_nr < $pages){ ?>
-    <a href="?page_nr=<?php echo $page_nr + 1 ?>"><i class="fa-solid fa-chevron-left bg-white p-2 rounded-l-full shadow-md shadow-gray-500"></i></a>
+    <a href="?page_nr=<?php echo $page_nr + 1 ?>"><i class="fa-solid font-bold fa-chevron-left bg-white p-3 rounded-l-full shadow-md shadow-gray-500"></i></a>
 <?php } else { ?>
-    <i class="fa-solid fa-chevron-left bg-white p-2 rounded-l-full shadow-md shadow-gray-500"></i>
+    <i class="fa-solid fa-chevron-left bg-white p-3 rounded-l-full font-bold shadow-md shadow-gray-500"></i>
 <?php } ?>
 
                 </div>

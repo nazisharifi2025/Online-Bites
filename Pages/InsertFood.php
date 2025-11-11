@@ -15,9 +15,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $Price = $_POST['Price'];
     $img = $_FILES['img']['name'];          
     $tempname = $_FILES['img']['tmp_name'];
-
     $folder = "image/" . $img;
-
+    $If= $connict->query("SELECT * FROM foods WHERE FoodName='$Name' and Description='$des'");
+    if($If->num_rows > 0){
+        echo "<script>alert('Sorry Already Exists')</script>";
+    }
+    else{
     if (move_uploaded_file($tempname, $folder)) {
         $dastor = "INSERT INTO foods (FoodName, Description, price, CatagoriId, img) 
                    VALUES ('$Name', '$des', '$Price', '$Cat', '$img')";
@@ -29,6 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         echo "<script>alert(' آپلود فایل انجام نشد!')</script>";
     }
+}
 }
 ?>
 
@@ -65,7 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <a href="home.php" class="ml-6">صفحه اصلی</a>
                 <a href="Dashbord.php">داشبورد</a>
                 <a href="Abouta.php">درباره</a>
-                <a href="home.php">خروج</a>
+                <a href="logout.php">خروج</a>
             </div>
             <div class="h-full w-full flex justify-center items-center flex-col gap-6">
                 <form action=<?php echo $_SERVER["PHP_SELF"]; ?> enctype="multipart/form-data" method="POST" class="h-[85vh] w-[50%]  text-center items-center font-bold text-xl  bg-black/40 rounded-md  flex-col gap-2  text-white flex justify-center  py-3">

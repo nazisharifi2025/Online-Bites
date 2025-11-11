@@ -9,6 +9,11 @@ $userId = $_SESSION['user_id'];
 if($_SERVER["REQUEST_METHOD"] === "POST"){
     $Name = $_POST["Name"];
     $Des = $_POST["Des"];
+    $IF=$connict->query("SELECT * FROM catagori WHERE catagoriName='$Name'");
+    if($IF->num_rows > 0){
+        echo "<script>alert('Sorry Already Exists')</script>";
+    }
+    else{
     $q = "INSERT INTO catagori(catagoriName,Discription)VALUES('$Name','$Des')";
     if($connict->query($q) === true){
         header("location: Catagoria.php");
@@ -16,6 +21,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
     else{
          header("location: InserCatagoi.php");
     }
+}
 }
 ?>
 <!DOCTYPE html>
@@ -51,7 +57,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
                 <a href="home.php" class="ml-6">صفحه اصلی</a>
                 <a href="Dashbord.php">داشبورد</a>
                 <a href="Abouta.php">درباره</a>
-                <a href="home.php">خروج</a>
+                <a href="logout.php">خروج</a>
             </div>
             <div class="h-full w-full flex justify-center items-center flex-col gap-6">
                 <form action=<?php echo $_SERVER["PHP_SELF"]; ?> method="POST" class="h-[60vh] w-[50%]  text-center items-center font-bold text-xl  bg-black/40 rounded-md  flex-col gap-6  text-white flex justify-center  py-3">

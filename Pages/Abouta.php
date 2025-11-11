@@ -40,7 +40,7 @@ $userId = $_SESSION['user_id'];
                 <a href="home.php" class="ml-6">صفحه اصلی</a>
                 <a href="Dashbord.php">داشبورد</a>
                 <a href="Abouta.php">درباره</a>
-                <a href="home.php">خروج</a>
+                <a href="logout.php">خروج</a>
             </div>
             <div class="h-full w-full flex justify-center items-center flex-col gap-6">
     <div class="h-[60vh] w-[70%]  text-center font-bold text-xl  rounded-md bg-gradient-to-l flex-col gap-6 from-green-950/80 to-white/40 text-white flex justify-center items-center border py-3">

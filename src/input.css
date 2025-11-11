@@ -16,3 +16,10 @@
   --color-mint-500: oklch(0.72 0.11 178);
   --font-kalam: "Kalam-Regular", cursive;
 };
+@import url('https://cdn.jsdelivr.net/npm/vazir-font@latest/dist/font-face.css');
+
+@layer base {
+  body {
+    font-family: 'Vazirmatn', sans-serif;
+  }
+}
