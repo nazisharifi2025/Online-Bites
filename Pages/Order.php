@@ -46,7 +46,7 @@ $result = $connict->query($q);
             </div>
             <div class="h-full w-full flex justify-center items-center flex-col gap-6">
     <div class="h-[80vh] w-[98%]  text-center font-bold text-xl p-2 rounded-md bg-gradient-to-l flex-col items-end gap-6 from-green-950/80 to-white/40 text-white flex justify-center border py-3">
-        <h1 class="font-bold text-3xl mx-auto">سفارشات</h1>
+        <h1 class="font-bold text-4xl mx-auto">سفارشات</h1>
         <!-- <button class="px-3 py-2 bg-green-950/80 text-white rounded-md w-fit "><a href="InserCatagoi.php" >اضافه کردن دسته بندی جدید</a></button> -->
         <table class="w-full p-6 overflow-y-scroll overscroll-y-none">
             <tr class="border-b border-green-950 px-2">

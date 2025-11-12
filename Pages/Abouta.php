@@ -18,7 +18,7 @@ $userId = $_SESSION['user_id'];
 </head>
 <body>
     <div class="w-full h-screen flex ">
-     <div class="w-[30%] h-full bg-green-950/75 flex flex-col gap-6 pt-6">
+     <div class="w-[30%] h-full bg-linear to-white from-green-950/75 flex flex-col gap-6 pt-6">
         <h1 class="text-3xl font-bold text-center p-4 text-white">رستورانت آنلاین</h1>
         <div class="py-2 text-white bg-black/25 flex justify-center items-center ">
             <a href="Fooda.php"><h1 class="font-bold text-2xl">غذا ها</h1></a>
