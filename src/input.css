@@ -13,6 +13,7 @@
   --color-hnav: rgb(37, 22, 90);
   --color-navar1: rgb(18, 0, 50);
   --color-um: rgb(32, 17, 61);
+  --color-um: rgba(32, 17, 64,0.6);
   --color-mint-500: oklch(0.72 0.11 178);
   --font-kalam: "Kalam-Regular", cursive;
 };
