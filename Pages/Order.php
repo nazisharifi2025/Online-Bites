@@ -41,7 +41,7 @@ $result = $connict->query($q);
             <div  class="w-full h-20 shadow-md font-bold shadow-gray-600 flex space-x-7 justify-start items-center text-white px-4">
                 <a href="home.php" class="ml-6">صفحه اصلی</a>
                 <a href="Dashbord.php">داشبورد</a>
-                <a href="Abouta.php">درباره</a>
+                <a href="Abouta.php">درباره ما</a>
                 <a href="logout.php">خروج</a>
             </div>
             <div class="h-full w-full flex justify-center items-center flex-col gap-6">
