@@ -50,6 +50,5 @@ $userId = $_SESSION['user_id'];
     </div>
         </div>
     </div>
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum, error amet provident dolorem rem veniam voluptas qui corrupti quas expedita, deserunt eum quos optio dolore autem, enim odio suscipit. Exercitationem!
 </body>
 </html>
